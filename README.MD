@@ -10,19 +10,19 @@
 7. Run `generator.py`
 
 ## Traits Setup
-traits/
-├─ layer1_name/
-│ ├─ file1#10.png
-│ ├─ file2#10.png
-│ ├─ file3#80.png
-│ ├─ ...
-├─ layer2_name/
-│ ├─ file1#50.png
-│ ├─ file2#50.png
-│ ├─ ...
-├─ layer3_name/
-│ ├─ file1#100.png
-│ ├─ ...
+traits/  
+├─ layer1_name/  
+│ ├─ file1#10.png  
+│ ├─ file2#10.png  
+│ ├─ file3#80.png  
+│ ├─ ...  
+├─ layer2_name/  
+│ ├─ file1#50.png  
+│ ├─ file2#50.png  
+│ ├─ ...  
+├─ layer3_name/  
+│ ├─ file1#100.png  
+│ ├─ ...  
 
 ## Image file Setup
 file1#100.png => `[file_name]`#`[rarity_value]`.png
