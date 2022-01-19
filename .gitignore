@@ -1,3 +1,4 @@
 output/*
+traits/*
 .ipynb_checkpoints/*
 __pycache__/*

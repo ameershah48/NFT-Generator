@@ -34,6 +34,7 @@ for trait in traits:
         traitList = [traitFile] * int(traitProb)
         weightedTraits[trait].append(traitList)
 
+possibleOutput = possibleOutput - int(possibleOutput * 0.2)
 #Show possible Output
 print("Posibble outputs: ", possibleOutput)
 imageCount = int(input("Enter outputs: "))
@@ -53,6 +54,8 @@ if(imageCount > 0):
         devAddress = "Cp4qLAgcAoNgg6aH1scCiVVH48iNjtTikiQMsiSztcCm"
     else:
         devAddress = "0xfa1db77200f3Ca7B9171b2c362484a1A1374243d"
+       
+ 
 
     # While more images need to be generated
     while outputCount < imageCount:
@@ -88,10 +91,13 @@ if(imageCount > 0):
         metadataDict["properties"]["creators"].append(royaltyDict)
 
         metadataDict["attributes"] = []
-
+        
         # Get traits
         for trait in traits:
-            traitChoice = random.choice(weightedTraits[trait])[0]
+            trait_list = weightedTraits[trait]
+            flatten_trait_list = sum(trait_list, [])
+            
+            traitChoice = random.choice(flatten_trait_list)
             outputString += traitChoice
 
             layerFiles[trait] = Image.open(os.path.dirname(os.path.realpath(__file__)) + "\\traits\\" + trait + "\\" + traitChoice)
@@ -132,12 +138,13 @@ if(imageCount > 0):
             outputCount = outputCount + 1
 
         else:
-            print("Already done this combination")
-
+            pass
+    
     # Save overall metadata
     jsonString = json.dumps(totalMetadata, indent = 4) 
     textFile = open(os.path.dirname(os.path.realpath(__file__)) + "\\output\\_metadata.json", "w")
     textFile.write(jsonString)
     textFile.close()
+    print("Generate completed.")
 else:
     print("Invalid output value!")
