@@ -2,3 +2,5 @@ output/*
 traits/*
 .ipynb_checkpoints/*
 __pycache__/*
+!output/.gitkeep
+!traits/.gitkeep
