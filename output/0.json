@@ -35,11 +35,11 @@
         },
         {
             "trait_type": "Headwear",
-            "value": "Stem"
+            "value": "Cap"
         },
         {
             "trait_type": "Mouth",
-            "value": "Bottom Teeth"
+            "value": "Smile"
         },
         {
             "trait_type": "Nose",
@@ -51,7 +51,7 @@
         },
         {
             "trait_type": "Eyes",
-            "value": "Tee"
+            "value": "Triangle"
         }
     ]
 }
