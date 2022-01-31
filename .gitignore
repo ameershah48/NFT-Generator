@@ -4,3 +4,4 @@ traits/*
 __pycache__/*
 !output/.gitkeep
 !traits/.gitkeep
+.DS_Store

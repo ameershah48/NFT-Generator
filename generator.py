@@ -17,7 +17,8 @@ weightedTraits = {}
 
 # Create weighted traits dictionary
 for trait in traits:
-    traitFiles = os.listdir(os.path.dirname(os.path.realpath(__file__)) + "\\traits\\" + trait)
+    root = os.path.dirname(os.path.realpath(__file__)) + "/traits/" + trait
+    traitFiles = os.listdir(root)
 
     possibleOutput = possibleOutput * len(traitFiles)
 
@@ -25,14 +26,15 @@ for trait in traits:
 
     # Iterate through each variation of trait
     for traitFile in traitFiles:
-        traitSplit = traitFile.split("#")
-        traitProbRaw = traitSplit[1]
+        if not traitFile.startswith('.') and os.path.isfile(os.path.join(root, traitFile)):
+            traitSplit = traitFile.split("#")
+            traitProbRaw = traitSplit[1]
 
-        traitProbRawSplit = traitProbRaw.split(".")
-        traitProb = traitProbRawSplit[0]
+            traitProbRawSplit = traitProbRaw.split(".")
+            traitProb = traitProbRawSplit[0]
 
-        traitList = [traitFile] * int(traitProb)
-        weightedTraits[trait].append(traitList)
+            traitList = [traitFile] * int(traitProb)
+            weightedTraits[trait].append(traitList)
 
 possibleOutput = possibleOutput - int(possibleOutput * 0.2)
 #Show possible Output
