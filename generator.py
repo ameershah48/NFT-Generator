@@ -102,7 +102,7 @@ if(imageCount > 0):
             traitChoice = random.choice(flatten_trait_list)
             outputString += traitChoice
 
-            layerFiles[trait] = Image.open(os.path.dirname(os.path.realpath(__file__)) + "\\traits\\" + trait + "\\" + traitChoice)
+            layerFiles[trait] = Image.open(os.path.dirname(os.path.realpath(__file__)) + "/traits/" + trait + "/" + traitChoice)
             layerFiles[trait] = layerFiles[trait].convert("RGBA")
 
             traitChoiceSplit = traitChoice.split("#")
@@ -125,11 +125,11 @@ if(imageCount > 0):
                     output.paste(layerFiles[trait], (0,0), mask = layerFiles[trait])
 
             # Save image
-            output.save(os.path.dirname(os.path.realpath(__file__)) + "\\output\\" + str(outputCount) + ".png","PNG")
+            output.save(os.path.dirname(os.path.realpath(__file__)) + "/output/" + str(outputCount) + ".png","PNG")
 
             # Save metadata
             jsonString = json.dumps(metadataDict, indent = 4) 
-            textFile = open(os.path.dirname(os.path.realpath(__file__)) + "\\output\\" + str(outputCount) + ".json", "w")
+            textFile = open(os.path.dirname(os.path.realpath(__file__)) + "/output/" + str(outputCount) + ".json", "w")
             textFile.write(jsonString)
             textFile.close()
 
@@ -144,7 +144,7 @@ if(imageCount > 0):
     
     # Save overall metadata
     jsonString = json.dumps(totalMetadata, indent = 4) 
-    textFile = open(os.path.dirname(os.path.realpath(__file__)) + "\\output\\_metadata.json", "w")
+    textFile = open(os.path.dirname(os.path.realpath(__file__)) + "/output/_metadata.json", "w")
     textFile.write(jsonString)
     textFile.close()
     print("Generate completed.")
