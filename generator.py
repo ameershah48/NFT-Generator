@@ -38,8 +38,7 @@ for trait in traits:
 
 possibleOutput = possibleOutput - int(possibleOutput * 0.2)
 
-print("\n")
-print("Loaded traits layer: " + str(traits))
+print("\nLoaded traits layer: " + str(traits) + "\n")
 print("Posibble generated NFT(s): ", possibleOutput)
 
 imageCount = int(input("Enter total NFT(s) to generate: "))
