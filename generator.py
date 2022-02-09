@@ -5,6 +5,7 @@ from time import sleep
 import json
 from config import *  
 from sys import exit
+from pathlib import Path
 
 """
 IMPORTANT: Update config.py with your own variables
@@ -18,7 +19,9 @@ weightedTraits = {}
 # Create weighted traits dictionary
 for trait in traits:
     root = os.path.dirname(os.path.realpath(__file__)) + "/traits/" + trait
-    traitFiles = os.listdir(root)
+    path = Path(root)
+    
+    traitFiles = os.listdir(path)
 
     possibleOutput = possibleOutput * len(traitFiles)
 
