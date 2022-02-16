@@ -6,7 +6,6 @@ from config import *
 from sys import exit
 from alive_progress import alive_bar
 
-
 """
 IMPORTANT: Update config.py with your own variables
 """
@@ -15,7 +14,12 @@ IMPORTANT: Update config.py with your own variables
 possibleOutput = 1
 totalMetadata = []
 weightedTraits = {}
+splitter = ""
+ignore_rarity = 2
 
+
+splitter = input("Choose splitter symbol (E.g. #): ")
+ignore_rarity = int(input("Ignore rarity? (1.Yes, 2.No): "))
 
 # Create weighted traits dictionary
 for trait in traits:
@@ -27,13 +31,20 @@ for trait in traits:
     # Iterate through each variation of trait
     for traitFile in traitFiles:
         if not traitFile.startswith('.') and os.path.isfile(os.path.join(path, traitFile)):
-            traitSplit = traitFile.split("#")
+            traitSplit = traitFile.split(splitter)
             traitProbRaw = traitSplit[1]
 
             traitProbRawSplit = traitProbRaw.split(".")
             traitProb = traitProbRawSplit[0]
 
-            traitList = [traitFile] * int(traitProb)
+            if(ignore_rarity == 1):
+                traitList = [traitFile]
+            else:
+                traitList = [traitFile] * 100
+
+            print(int(traitProb))
+            print(traitList)
+
             weightedTraits[trait].append(traitList)
 
 possibleOutput = possibleOutput - int(possibleOutput * 0.2)
@@ -103,11 +114,15 @@ if(imageCount > 0):
                 traitChoice = random.choice(flatten_trait_list)
                 outputString += traitChoice
 
+                print("1", flatten_trait_list)
+                print("2", traitChoice)
+                print("3", outputString)
+
                 layerFiles[trait] = Image.open(os.path.dirname(
                     os.path.realpath(__file__)) + "/traits/" + trait + "/" + traitChoice)
                 layerFiles[trait] = layerFiles[trait].convert("RGBA")
 
-                traitChoiceSplit = traitChoice.split("#")
+                traitChoiceSplit = traitChoice.split(splitter)
                 traitChoiceName = traitChoiceSplit[0]
 
                 metadataTraits = {}

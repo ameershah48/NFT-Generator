@@ -5,3 +5,4 @@ __pycache__/*
 !output/.gitkeep
 !traits/.gitkeep
 .DS_Store
+config.py
