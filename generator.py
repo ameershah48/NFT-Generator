@@ -42,9 +42,6 @@ for trait in traits:
             else:
                 traitList = [traitFile] * 100
 
-            print(int(traitProb))
-            print(traitList)
-
             weightedTraits[trait].append(traitList)
 
 possibleOutput = possibleOutput - int(possibleOutput * 0.2)
@@ -113,10 +110,6 @@ if(imageCount > 0):
 
                 traitChoice = random.choice(flatten_trait_list)
                 outputString += traitChoice
-
-                print("1", flatten_trait_list)
-                print("2", traitChoice)
-                print("3", outputString)
 
                 layerFiles[trait] = Image.open(os.path.dirname(
                     os.path.realpath(__file__)) + "/traits/" + trait + "/" + traitChoice)
