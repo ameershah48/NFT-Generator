@@ -27,21 +27,14 @@ for trait in traits:
     traitFiles = os.listdir(path)
     possibleOutput = possibleOutput * len(traitFiles)
     weightedTraits[trait] = []
+    
+    print(traitFiles)
+ 
 
     # Iterate through each variation of trait
     for traitFile in traitFiles:
         if not traitFile.startswith('.') and os.path.isfile(os.path.join(path, traitFile)):
-            traitSplit = traitFile.split(splitter)
-            traitProbRaw = traitSplit[1]
-
-            traitProbRawSplit = traitProbRaw.split(".")
-            traitProb = traitProbRawSplit[0]
-
-            if(ignore_rarity == 1):
-                traitList = [traitFile]
-            else:
-                traitList = [traitFile] * 100
-
+            traitList = [traitFile]
             weightedTraits[trait].append(traitList)
 
 possibleOutput = possibleOutput - int(possibleOutput * 0.2)

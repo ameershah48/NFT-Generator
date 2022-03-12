@@ -4,7 +4,15 @@ Fill in your information in the configuration variables below
 
 traits = [
     "Background",
-    "Skin Tone", 
+    "Skin Tone",
+    "Tattoo",
+    "Fashion",
+    "Jewelry",
+    "Hair",
+    "Eyewear",
+    "Mouth",
+    "Mask",
+    "Hats"
 ] # The different layers and the order that they will be used - MUST be same as trait layer folders
 
 nameFormat = "MINAH #[NUMBER]" # The name of each NFT - '[NUMBER]' will be replaced with the NFT number
